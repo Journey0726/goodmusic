@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div id="index">
     <input type="text" placeholder="请输入查询内容" v-model="keywords" @keyup.enter="getSearchInfo(keywords)">
-    <showMusicList  :musicsList = 'musicsList'></showMusicList>
-    <player></player>
+    <showMusicList  :musicsList = 'musicsList' class="musicsList"></showMusicList>
+    <player class="player"></player>
   </div>
 </template>
 
@@ -34,6 +34,15 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
+ .musicsList{
+   width: 60%;
+   display: flex;
+   margin-left: 20%;
+}
+.player{
+  display: flex;
+  bottom: 0;
+}
 </style>

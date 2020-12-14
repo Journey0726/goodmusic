@@ -1,6 +1,12 @@
 <template>
   <div id='list'>
-      <div class="item" v-for="(item,index) in musicsList" @click="choiceId(item)">{{item.name}}</div>
+      <div class="item" 
+      v-for="(item,index) in musicsList" 
+      :class="{isAcitve:currentIndex == index}"
+      @click="choiceId(item,index)">
+      <img v-if="currentIndex === index" class="img" src="@/assets/img/duringPlay.svg" alt="">
+      <img v-else class="img" src="@/assets/img/beforePlay.svg" alt="">
+          {{item.name}}</div>
   </div>
 </template>
 
@@ -15,14 +21,16 @@ export default {
     },
     data(){
         return{
-            id:null
+            id:null,
+            currentIndex:0,
+            
         }
     },
     methods:{
-        choiceId(item){
+        choiceId(item,index){
             this.id = item.id
+            this.currentIndex = index
             this.$bus.$emit('theID',this.id)
-            // console.log(111);
         }
     }
 
@@ -33,10 +41,21 @@ export default {
     #list {
         display: flex;
         flex-direction: column;
+        
     }
     .item {
-        border: 1px solid ;
-        border-radius: 2px;
-        font-size: 15px;
+        border-bottom: 1px solid ;
+        font-size: 10px;
+        height: 25px;
+        line-height: 25px;
+        padding: 3px;
+    }
+    .img{
+        height: 10px;
+        margin-top: 5px;
+    }
+    .isAcitve{
+        background-color:rgb(11, 147, 238);
+        color: #fff;
     }
 </style>
