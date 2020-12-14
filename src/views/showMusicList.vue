@@ -1,5 +1,8 @@
 <template>
   <div id='list'>
+      <div class="back">
+          <p class="back1" @click="back">返回</p>
+      </div>
       <div class="item" 
       v-for="(item,index) in musicsList" 
       :class="{isAcitve:currentIndex == index}"
@@ -22,7 +25,7 @@ export default {
     data(){
         return{
             id:null,
-            currentIndex:0,
+            currentIndex:null,
             
         }
     },
@@ -31,6 +34,9 @@ export default {
             this.id = item.id
             this.currentIndex = index
             this.$bus.$emit('theID',this.id)
+        },
+        back(){
+            this.$emit('back')
         }
     }
 
@@ -57,5 +63,15 @@ export default {
     .isAcitve{
         background-color:rgb(11, 147, 238);
         color: #fff;
+    }
+    .back{
+        font-size: 10px;
+        padding: 5px;
+        background-color:pink;
+       
+    }
+    .back1{
+         cursor: pointer;
+         display: inline;
     }
 </style>
