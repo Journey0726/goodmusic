@@ -1,30 +1,23 @@
 <template>
   <div id="app">
-    <player></player>
-    <button @click="getSearchInfo('许嵩')">dianwo </button>
-  
+    <index></index>
   </div>
 </template>
 
 <script>
 
-import {getSearchInfo} from '@/network/search.js'
-import player from '@/views/player.vue'
+
+import index from '@/views/index.vue'
+
 
 export default {
   name: 'App',
   components: {
-    player
+    index
+    
   },
  
-    Playerethods:{
-    getSearchInfo(info){
-      getSearchInfo(info).then(res=>{
-        // this.list = res.result.songs
-        console.log(res);
-      })
-    }
-  }
+
 }
 </script>
 
