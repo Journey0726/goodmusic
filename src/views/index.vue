@@ -7,6 +7,7 @@
     
     <recommend v-if="!isSearch" :recommend='recommend' class="recommend"></recommend>
     <showMusicList v-else :musicsList = 'musicsList' class="musicsList" @back = 'back'></showMusicList>
+    <div class="empty"></div>
     <player class="player"></player>
   </div>
 </template>
@@ -60,7 +61,7 @@ export default {
 
 <style scoped>
   #index{
-    background-color: rgb(245,245,245);
+    background-color: rgba(235, 235, 235, 0.123);
   }
   .header{
     display: flex;
@@ -79,8 +80,8 @@ export default {
   
   .title{
     width:200px;
-    margin-left: 100px;
-    flex: 1;
+    margin-left: 300px;
+    flex: 0.6;
     color: #fff;
   }
  .musicsList{
@@ -117,4 +118,8 @@ export default {
         top: 400px;
         right: 400px;
     }
+  .empty{
+ 
+    height: 100px;
+  }
 </style>

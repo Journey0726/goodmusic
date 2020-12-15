@@ -26,15 +26,14 @@ export default {
         return{
             id:null,
             currentIndex:null,
-            playList:[]
         }
     },
     methods:{
         choiceId(item,index){
             this.id = item.id
             this.currentIndex = index
-            this.playList.push(item.id)
             this.$bus.$emit('theID',this.id)
+            this.$store.commit('addMusic',item.id)
         },
         back(){
             this.$emit('back')

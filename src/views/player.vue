@@ -1,6 +1,8 @@
 <template>
-    <audio class="player" :src="'https://music.163.com/song/media/outer/url?id='+ this.id+'.mp3'" 
+    <audio class="player" :src="'https://music.163.com/song/media/outer/url?id='+ playList[playList.length-1]+'.mp3'" 
      controls="controls" autoplay="autoplay"></audio>
+
+    
 </template>
 
 <script>
@@ -10,17 +12,18 @@ name:'player',
 data(){
     return {
         id:null,
+        playList:[]
     }
 },
 mounted(){
     this.$bus.$on('theID',(msg)=>{
         this.id = msg
-        // console.log(this.id);
+        this.playList  = this.$store.state.playList
     })
 }
 }
 </script>
 
 <style scoped>
-   
+ 
 </style>
