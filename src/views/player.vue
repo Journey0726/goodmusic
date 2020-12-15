@@ -1,5 +1,5 @@
 <template>
-    <audio :src="'https://music.163.com/song/media/outer/url?id='+ this.id+'.mp3'" 
+    <audio class="player" :src="'https://music.163.com/song/media/outer/url?id='+ this.id+'.mp3'" 
      controls="controls" autoplay="autoplay"></audio>
 </template>
 
@@ -15,12 +15,12 @@ data(){
 mounted(){
     this.$bus.$on('theID',(msg)=>{
         this.id = msg
-        console.log(this.id);
+        // console.log(this.id);
     })
 }
 }
 </script>
 
-<style>
-
+<style scoped>
+   
 </style>

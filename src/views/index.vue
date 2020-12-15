@@ -33,7 +33,7 @@ export default {
      }
     },
     created(){
-      this.recomSongList(10)
+      this.recomSongList(14)
     },
       methods:{
         getSearchInfo(info){
@@ -68,9 +68,9 @@ export default {
   }
     .input{
     width: 100px;
-    height: 20px;
+    height: 15px;
     align-self: center;
-    border-radius: 10px;
+    border-radius: 15px;
     outline-style:none
   }
   ::-webkit-input-placeholder{
@@ -84,7 +84,7 @@ export default {
     color: #fff;
   }
  .musicsList{
-   width: 68%;
+   width:1000px;
    display: flex;
    margin-left: 20%;
    background-color: rgb(255, 255, 255);
@@ -92,7 +92,7 @@ export default {
    flex-wrap: wrap;
 }
   .recommend{
-     width: 68%;
+     width:1000px;
   
    margin-left: 20%;
    background-color: rgb(255, 255, 255);
@@ -106,4 +106,15 @@ export default {
   width: 100%;
   height: 40px;
 }
+ .player::after{
+        content: '';
+        height: 100px;
+        width: 100px;
+        background:url('http://p1.music.126.net/Qi10RrYgTTwtqLIijQwstw==/109951165543037780.jpg');
+        background-size: contain;
+        z-index: 10;
+        position: absolute;
+        top: 400px;
+        right: 400px;
+    }
 </style>
