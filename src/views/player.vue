@@ -1,18 +1,27 @@
 <template>
-    <audio class="player" :src="'https://music.163.com/song/media/outer/url?id='+ playList[playList.length-1]+'.mp3'" 
-     controls="controls" autoplay="autoplay"></audio>
-
+    <div id='player'>
+        <audio class="player" :src="'https://music.163.com/song/media/outer/url?id='+ playList[playList.length-1]+'.mp3'" 
+        controls="controls" autoplay="autoplay"></audio>
+        <div @click="isShow">
+            <img class="listImg" src="@/assets/img/list.svg" alt="">
+        </div>
+        <listMusic v-show="isshow" class="list" ></listMusic>
+    </div>
     
 </template>
 
 <script>
+import listMusic from './listMusic'
 export default {
 name:'player',
-
+components:{
+    listMusic
+},
 data(){
     return {
         id:null,
-        playList:[]
+        playList:[],
+        isshow:false
     }
 },
 mounted(){
@@ -20,10 +29,37 @@ mounted(){
         this.id = msg
         this.playList  = this.$store.state.playList
     })
+},
+methods:{
+    isShow(){
+        this.isshow = !this.isshow
+    }
 }
 }
 </script>
 
 <style scoped>
- 
+#player{
+    display: flex;
+    justify-content: center;
+    background-color: #eee;
+}
+.player{
+    width: 1000px;
+    align-items: center;
+}
+.listImg{
+    width: 30px;
+    background:#eee;   
+    cursor: pointer;
+    border-radius: 5px;
+}
+.list{
+    height: 250px;
+    position: flex;
+    bottom: 160px;
+    right: 80px;
+    overflow-y: auto;
+}
+
 </style>

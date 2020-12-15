@@ -33,7 +33,7 @@ export default {
             this.id = item.id
             this.currentIndex = index
             this.$bus.$emit('theID',this.id)
-            this.$store.commit('addMusic',item.id)
+            this.$store.commit('addMusic',item)
         },
         back(){
             this.$emit('back')

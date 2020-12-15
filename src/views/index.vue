@@ -107,19 +107,9 @@ export default {
   width: 100%;
   height: 40px;
 }
- .player::after{
-        content: '';
-        height: 100px;
-        width: 100px;
-        background:url('http://p1.music.126.net/Qi10RrYgTTwtqLIijQwstw==/109951165543037780.jpg');
-        background-size: contain;
-        z-index: 10;
-        position: absolute;
-        top: 400px;
-        right: 400px;
-    }
+
   .empty{
  
-    height: 100px;
+    height: 50px;
   }
 </style>
