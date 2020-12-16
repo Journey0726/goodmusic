@@ -26,6 +26,7 @@ export default {
         return{
             id:null,
             currentIndex:null,
+            length:0
         }
     },
     methods:{
@@ -34,6 +35,8 @@ export default {
             this.currentIndex = index
             this.$bus.$emit('theID',this.id)
             this.$store.commit('addMusic',item)
+            this.length = this.$store.state.playList.length
+            this.$store.commit('changeIndex',this.length-1)
         },
         back(){
             this.$emit('back')

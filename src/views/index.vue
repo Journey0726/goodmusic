@@ -87,7 +87,7 @@ export default {
  .musicsList{
    width:1000px;
    display: flex;
-   margin-left: 20%;
+   margin-left: 18%;
    background-color: rgb(255, 255, 255);
    box-shadow: -1px 1px 2px;
    flex-wrap: wrap;
@@ -95,7 +95,7 @@ export default {
   .recommend{
      width:1000px;
   
-   margin-left: 20%;
+   margin-left: 18%;
    background-color: rgb(255, 255, 255);
    box-shadow: -1px 1px 2px;
   }
