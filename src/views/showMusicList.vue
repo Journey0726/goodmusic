@@ -33,7 +33,7 @@ export default {
         choiceId(item,index){
             this.id = item.id
             this.currentIndex = index
-            this.$bus.$emit('theID',this.id)
+            
             this.$store.commit('addMusic',item)
             this.length = this.$store.state.playList.length
             this.$store.commit('changeIndex',this.length-1)
