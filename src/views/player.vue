@@ -4,7 +4,7 @@
       class="player"
       :src="
         'https://music.163.com/song/media/outer/url?id=' +
-       musicId +
+       this.currentId +
         '.mp3'
       "
       controls="controls"
@@ -29,23 +29,14 @@ export default {
   data() {
     return {
       id: null,
-      playList: [],
       isshow: false,
-      currentIndex: 0,
+      currentId: 0,
     };
   },
   computed: {
     listenChange() {
-      this.currentIndex = this.currentIndex = this.$store.state.currentIndex;
+      this.currentId = this.$store.state.currentId;
     },
-    musicId(){
-       if(!this.currentIndex)
-        return 0;
-        else return this.playList[this.currentIndex].id
-    }
-  },
-  mounted() {
-    this.playList = this.$store.state.playList;
   },
   methods: {
     isShow() {

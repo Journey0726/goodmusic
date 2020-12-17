@@ -5,11 +5,12 @@
       </div>
       <div class="item" 
       v-for="(item,index) in musicsList" 
-      :class="{isAcitve:currentIndex == index}"
+      :class="{isAcitve:currentId == item.id}"
       @click="choiceId(item,index)">
-      <img v-if="currentIndex === index" class="img" src="@/assets/img/duringPlay.svg" alt="">
+      <img v-if="currentId === item.id" class="img" src="@/assets/img/duringPlay.svg" alt="">
       <img v-else class="img" src="@/assets/img/beforePlay.svg" alt="">
           {{item.name}}</div>
+          <div>{{updateID}}</div>
   </div>
 </template>
 
@@ -23,20 +24,19 @@ export default {
         }
     },
     data(){
-        return{
-            id:null,
-            currentIndex:null,
-            length:0
+        return{ 
+            currentId:null,
+        }
+    },
+    computed:{
+        updateID(){
+            this.currentId = this.$store.state.currentId
         }
     },
     methods:{
         choiceId(item,index){
-            this.id = item.id
-            this.currentIndex = index
-            
             this.$store.commit('addMusic',item)
-            this.length = this.$store.state.playList.length
-            this.$store.commit('changeIndex',this.length-1)
+            this.$store.commit('changeId',item.id)
         },
         back(){
             this.$emit('back')
