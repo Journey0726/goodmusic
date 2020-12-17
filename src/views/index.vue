@@ -2,7 +2,10 @@
   <div id="index">
     <div class="header">
       <h2 class="title">GoodMusic</h2>
-    <input type="text" placeholder="请输入查询内容" v-model="keywords" @keyup.enter="getSearchInfo(keywords)" class="input">
+      <span class="parent">
+        <img class="img" @click="getSearchInfo(keywords)" src="@/assets/img/search.svg" alt="">
+        <input type="text" placeholder="请输入查询内容" v-model="keywords" @keyup.enter="getSearchInfo(keywords)" class="input">
+      </span>
     </div>
     
     <recommend v-if="!isSearch" :recommend='recommend' class="recommend"></recommend>
@@ -65,17 +68,35 @@ export default {
   }
   .header{
     display: flex;
-    background-color: rgb(36,36,36);
+    background-color: #333;
+  }
+  .parent{
+    display: block;
+    height: 30px;
+    position: relative;
+    
+    align-self: center;
+    border-radius: 15px;
+    background-color: #fff;
+
+  }
+  .parent .img{
+    width: 15px;
+    margin-top: 8px;
+    margin-left: 5px;
+    cursor: pointer;
   }
     .input{
     width: 100px;
     height: 15px;
+    margin-bottom: 5px;
     align-self: center;
-    border-radius: 15px;
-    outline-style:none
+    background: transparent;
+    border: none;
+    outline-style:none;
   }
   ::-webkit-input-placeholder{
-    font-size: 5px;
+    font-size: 1px;
   }
   
   .title{
@@ -85,7 +106,7 @@ export default {
     color: #fff;
   }
  .musicsList{
-   width:1000px;
+   width:500px;
    display: flex;
    margin-left: 18%;
    background-color: rgb(255, 255, 255);
