@@ -65,11 +65,12 @@ export default {
 <style scoped>
   #index{
     background-color: rgba(235, 235, 235, 0.123);
-     white-space:nowrap;
+    
   }
   .header{
     display: flex;
     background-color: #333;
+     white-space:nowrap;
   }
   .parent{
     display: block;

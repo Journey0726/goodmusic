@@ -5,7 +5,7 @@
     
       <div v-for="item in recommend" class="recommendList">
           <img :src="item.picUrl" alt="" class="img">
-          <!-- <p>{{item.name}}</p> -->
+          <i class="name">{{item.name}}</i>
       </div>
   </div>
 </template>
@@ -33,7 +33,7 @@ export default {
 }
     .recommendList{
          display: inline-block; 
-          
+         width: 130px;  
     }
    
     .img{
@@ -41,6 +41,14 @@ export default {
        padding: 20px;
         flex-direction: row;
         flex-wrap: wrap;
+    }
+    .name{
+        display: inline-block;
+        margin-left: 25px;
+        width: 100px;
+        font-size: 10px;
+        height: 50px;
+        /* flex-wrap: wrap; */
     }
 
 </style>
