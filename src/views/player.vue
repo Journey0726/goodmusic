@@ -58,6 +58,7 @@ export default {
 .player {
   width: 1000px;
   align-items: center;
+  outline: none;
 }
 .listImg {
   width: 30px;

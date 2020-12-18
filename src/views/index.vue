@@ -65,6 +65,7 @@ export default {
 <style scoped>
   #index{
     background-color: rgba(235, 235, 235, 0.123);
+     white-space:nowrap;
   }
   .header{
     display: flex;
@@ -73,7 +74,7 @@ export default {
   .parent{
     display: block;
     height: 30px;
-    position: relative;
+    /* position: relative; */
     
     align-self: center;
     border-radius: 15px;
@@ -106,7 +107,7 @@ export default {
     color: #fff;
   }
  .musicsList{
-   width:500px;
+   width:1000px;
    display: flex;
    margin-left: 18%;
    background-color: rgb(255, 255, 255);

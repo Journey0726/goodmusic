@@ -58,19 +58,21 @@ export default {
         height: 25px;
         line-height: 25px;
         padding: 3px;
+        cursor: pointer;
     }
     .img{
         height: 10px;
         margin-top: 5px;
     }
     .isAcitve{
-        background-color:rgb(11, 147, 238);
+        background-color: rgba(2, 15, 20, 0.726);
         color: #fff;
     }
     .back{
         font-size: 10px;
         padding: 5px;
-        background-color:pink;
+        color: #fff;
+        background-color:rgb(192, 14, 12);
        
     }
     .back1{
