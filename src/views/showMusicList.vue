@@ -40,7 +40,8 @@ export default {
         },
         back(){
             this.$emit('back')
-        }
+        },
+  
     }
 
 }
@@ -79,4 +80,5 @@ export default {
          cursor: pointer;
          display: inline;
     }
+
 </style>

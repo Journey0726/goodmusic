@@ -1,10 +1,11 @@
 import {request} from './request.js'
 
-export function getSearchInfo(keywords){
+export function getSearchInfo(keywords,type){
     return request({
         url:'/search',
         params:{
-            keywords
+            keywords,
+            type
         }
     })
 }

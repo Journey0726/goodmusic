@@ -76,7 +76,7 @@ export default {
     }
     .length span{
         position: relative;
-        padding-left: 80px;
+        margin-left: 80px;
         cursor: pointer;     
        
     }
