@@ -10,9 +10,7 @@ const store = new Vuex.Store(
     mutations:{
         addMusic(state,payload){
             if(!state.playList.includes(payload))
-            state.playList.push(payload);
-      
-          
+            state.playList.push(payload);   
         },
         changeId(state,payload){
             state.currentId = payload

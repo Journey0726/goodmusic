@@ -7,6 +7,15 @@ export function request(config){
     
     return instance(config)
 }
+export function getMv(config){
+    const instance = new axios.create({
+        baseURL:'https://autumnfish.cn/',
+        timeout:5000
+    })
+    
+    return instance(config)
+}
+
 
 // import axios from 'axios'
 

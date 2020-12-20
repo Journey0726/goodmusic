@@ -4,12 +4,13 @@
       <h2 class="title">GoodMusic</h2>
       <span class="parent">
         <img class="img" @click="getSearchInfo(keywords,type)" src="@/assets/img/search.svg" alt="">
-        <input type="text" placeholder="请输入查询内容" v-model="keywords" @keyup.enter="getSearchInfo(keywords)" class="input">
+        <input type="text" placeholder="请输入查询内容" v-model="keywords"
+         @keyup.enter="getSearchInfo(keywords)" class="input">
       </span>
     </div>
     <topList v-if="!isSearch" :theTopList='theTopList' class="recommend" @searchSonger='getSearchInfo'></topList>
     <recommend v-if="!isSearch" :recommend='recommend' class="recommend"></recommend>
-    <showMusicList v-else :musicsList = 'musicsList' class="musicsList"
+    <showMusicList v-else :musicsList = 'musicsList' :mvList = 'mvList' class="musicsList"
      @back = 'back'></showMusicList>
     <div class="empty"></div>
     <player class="player"></player>
@@ -17,7 +18,7 @@
 </template>
 
 <script>
-import {getSearchInfo} from '@/network/search.js'
+import {getSearchInfo,getMvInfo} from '@/network/search.js'
 import {getRecommendInfo} from '@/network/recomSongList.js'
 import {getTopListInfo} from '@/network/toplist.js'
 import player from '@/views/player.vue'
@@ -37,26 +38,30 @@ export default {
      return {
         keywords:'',
         musicsList:[],
+        mvList:[],
         recommend:[],
         isSearch:false,
-        type : 1,
         theTopList:[]
      }
     },
     created(){
       this.recomSongList(14)
       this.getTopListInfo()
+   
     },
       methods:{
-        getSearchInfo(info,type){
-        getSearchInfo(info,type).then(res=>{
+        getSearchInfo(info){
+        getSearchInfo(info).then(res=>{
         // this.list = res.result.songs
         console.log(res.data.result.songs);
         this.musicsList = res.data.result.songs 
-     
         this.isSearch = true
+      }),
+      getMvInfo(info).then(res=>{
+         this.mvList =  res.data.result.mvs
       })
     },
+
     recomSongList(limit){
       getRecommendInfo(limit).then(res=>{
        this.recommend = res.data.result
@@ -65,9 +70,9 @@ export default {
     },
     getTopListInfo(){
       getTopListInfo().then(res=>{
-        console.log(res);
+        // console.log(res);
         this.theTopList = res.data.list.artists
-        console.log(this.theTopList);
+        // console.log(this.theTopList);
       })
     },
     back(){

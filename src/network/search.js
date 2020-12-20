@@ -9,3 +9,12 @@ export function getSearchInfo(keywords,type){
         }
     })
 }
+export function getMvInfo(keywords,type=1004){
+    return request({
+        url:'/search',
+        params:{
+            keywords,
+            type
+        }
+    })
+}
