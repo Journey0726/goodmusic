@@ -7,7 +7,7 @@
         <input type="text" placeholder="请输入查询内容" v-model="keywords" @keyup.enter="getSearchInfo(keywords)" class="input">
       </span>
     </div>
-    
+    <topList v-if="!isSearch" :theTopList='theTopList' class="recommend" @searchSonger='getSearchInfo'></topList>
     <recommend v-if="!isSearch" :recommend='recommend' class="recommend"></recommend>
     <showMusicList v-else :musicsList = 'musicsList' class="musicsList"
      @back = 'back'></showMusicList>
@@ -19,9 +19,11 @@
 <script>
 import {getSearchInfo} from '@/network/search.js'
 import {getRecommendInfo} from '@/network/recomSongList.js'
+import {getTopListInfo} from '@/network/toplist.js'
 import player from '@/views/player.vue'
 
 import recommend from '@/views/recommend.vue'
+import topList from '@/views/topList.vue'
 import showMusicList from "@/views/showMusicList.vue"
 export default {
     name:"index",
@@ -29,7 +31,7 @@ export default {
         player,
         showMusicList,
         recommend,
-      
+        topList
     },
     data(){
      return {
@@ -37,11 +39,13 @@ export default {
         musicsList:[],
         recommend:[],
         isSearch:false,
-        type : 1004,
+        type : 1,
+        theTopList:[]
      }
     },
     created(){
       this.recomSongList(14)
+      this.getTopListInfo()
     },
       methods:{
         getSearchInfo(info,type){
@@ -56,7 +60,14 @@ export default {
     recomSongList(limit){
       getRecommendInfo(limit).then(res=>{
        this.recommend = res.data.result
-       console.log( res.data.result);
+      //  console.log( res.data.result);
+      })
+    },
+    getTopListInfo(){
+      getTopListInfo().then(res=>{
+        console.log(res);
+        this.theTopList = res.data.list.artists
+        console.log(this.theTopList);
       })
     },
     back(){
