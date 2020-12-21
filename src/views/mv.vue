@@ -1,5 +1,5 @@
 <template>
-    <video :src="mvURL" controls='controls'></video>
+    <video :src="mvURL" controls='controls' class="video"></video>
 </template>
 
 <script>
@@ -14,6 +14,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    .video{
+        width: 500px;
+    }
 </style>
