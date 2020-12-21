@@ -16,6 +16,8 @@ export default {
 
 <style scoped>
     .video{
-        width: 500px;
+        width: 600px;
+        z-index: 9;
     }
+
 </style>

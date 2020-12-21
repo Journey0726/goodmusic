@@ -25,7 +25,10 @@
             <i class="name">{{ item.name }}</i>
         </div>
         </div>
-        <mv :mvURL = 'mvURL'></mv>
+        <div class="video"  v-if="mvIsShow">
+             <mv class="mvVideo" :mvURL = 'mvURL'></mv>
+            <div class="mask" @click="hide"></div>
+        </div>
         
   </div>
 </template>
@@ -54,7 +57,8 @@ export default {
         return{ 
             currentId:null,
             mvURL:'',
-            songIsShow:true
+            songIsShow:true,
+            mvIsShow:false
         }
     },
     computed:{
@@ -70,6 +74,7 @@ export default {
         mvClick(id){
             getMvAddress(id).then(res=>{
                this.mvURL = res.data.data.url
+               this.mvIsShow = true
             })
         },
         song(){
@@ -81,6 +86,9 @@ export default {
         back(){
             this.$emit('back')
         },
+        hide(){
+            this.mvIsShow = false
+        }
   
     }
 
@@ -153,5 +161,26 @@ export default {
 }
 .isShow{
     box-shadow:  5px 5px 5px;
+}
+/* .video{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+} */
+    .mvVideo{
+    position: fixed;
+     top: 0;
+    left: 0;
+    right: 0;
+     bottom: 0;
+     margin: auto;
+}
+.mask{
+    position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
 </style>
