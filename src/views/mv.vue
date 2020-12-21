@@ -1,5 +1,5 @@
 <template>
-    <video :src="mvURL" controls='controls' class="video"></video>
+    <video :src="mvURL" controls='controls'  autoplay="autoplay" class="video"></video>
 </template>
 
 <script>
