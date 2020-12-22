@@ -53,13 +53,13 @@ export default {
         getSearchInfo(info){
         getSearchInfo(info).then(res=>{
         // this.list = res.result.songs
-        // console.log(res.data.result.songs);
+        console.log(res.data.result.songs);
         this.musicsList = res.data.result.songs 
         this.isSearch = true
       }),
       getMvInfo(info).then(res=>{
          this.mvList =  res.data.result.mvs
-         console.log(this.mvList);
+        //  console.log(this.mvList);
       })
     },
 

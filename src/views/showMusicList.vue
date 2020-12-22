@@ -14,7 +14,10 @@
         @click="choiceId(item,index)">
         <img v-if="currentId === item.id" class="songImg" src="@/assets/img/duringPlay.svg" alt="">
         <img v-else class="songImg" src="@/assets/img/beforePlay.svg" alt="">
-            {{item.name}}</div>
+           
+           <span class="span">{{item.name}}</span> 
+            <i class="theSonger" v-for="items in  item.artists">{{items.name + ' '}}</i>
+            </div>
             <!-- 更新当前歌曲id -->
             <div>{{updateID}}</div>
         </div>
@@ -111,6 +114,18 @@ export default {
         padding: 3px;
         cursor: pointer;
     }
+    .item:hover,.item .span:hover{
+        text-decoration: underline;
+    }
+    .span{
+        padding-left: 5px;
+        display: inline-block;
+        width: 700px;
+    }
+    .theSonger{
+        position: relative;
+        
+    }
     .songImg{
         height: 10px;
         margin-top: 5px;
@@ -162,11 +177,7 @@ export default {
 .isShow{
     box-shadow:  5px 5px 5px;
 }
-/* .video{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-} */
+
     .mvVideo{
     position: fixed;
      top: 0;
