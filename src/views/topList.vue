@@ -1,8 +1,8 @@
 <template>
 <div>
      <div class="title">热门歌手</div>
-     <div v-for="(item,index) in theTopList" 
-      :key='index' v-if='index<14' @click="searchSonger(item.name)"
+     <div v-for="(item,index) in theTopList.slice(0,14)" 
+      :key='index' @click="searchSonger(item.name)"
       class="theTopList">
       <img :src="item.picUrl" alt="" class="img" />
       <i class="name">{{ item.name }}</i>
