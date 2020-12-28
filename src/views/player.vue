@@ -4,7 +4,7 @@
       class="player"
       :src="
         'https://music.163.com/song/media/outer/url?id=' +
-       this.currentId +
+        this.currentId +
         '.mp3'
       "
       controls="controls"
