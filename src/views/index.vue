@@ -95,10 +95,8 @@ export default {
      white-space:nowrap;
   }
   .parent{
-    display: block;
+    display: flex;
     height: 30px;
-    /* position: relative; */
-    
     align-self: center;
     border-radius: 15px;
     background-color: #fff;
@@ -106,21 +104,20 @@ export default {
   }
   .parent .img{
     width: 15px;
-    margin-top: 8px;
+    margin-top: 2px;
     margin-left: 5px;
     cursor: pointer;
   }
     .input{
     width: 100px;
-    height: 15px;
-    margin-bottom: 5px;
     align-self: center;
     background: transparent;
     border: none;
     outline-style:none;
   }
   ::-webkit-input-placeholder{
-    font-size: 1px;
+    font-size: 5px;
+    padding-bottom: 15px;
   }
   
   .title{
@@ -154,7 +151,6 @@ export default {
 }
 
   .empty{
- 
     height: 50px;
   }
 </style>

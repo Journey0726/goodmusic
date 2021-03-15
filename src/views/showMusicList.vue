@@ -171,8 +171,10 @@ export default {
   margin-left: 25px;
   width: 100px;
   font-size: 10px;
-  height: 50px;
-  /* flex-wrap: wrap; */
+  height: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .isShow{
     box-shadow:  5px 5px 5px;

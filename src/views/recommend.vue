@@ -46,6 +46,10 @@ export default {
   width: 100px;
   font-size: 10px;
   height: 50px;
+  display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+overflow: hidden;
   /* flex-wrap: wrap; */
 }
 </style>
